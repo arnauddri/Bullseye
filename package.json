@@ -1,0 +1,39 @@
+{
+  "name": "bull",
+  "version": "0.1.5",
+  "description": "Job manager",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/OptimalBits/bull.git"
+  },
+  "keywords": [
+    "job",
+    "queue",
+    "task",
+    "parallel"
+  ],
+  "author": "OptimalBits",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "redis": "~0.8.4",
+    "when": "~2.1.1",
+    "lodash": "~2.2.1",
+    "bluebird": "~1.0.1",
+    "node-uuid": "~1.4.1",
+    "express": "3.4.8",
+    "jade": "1.1.5",
+    "stylus": "0.42.2",
+    "nib": "0.5.0",
+    "underscore": "*",
+    "async": "*"
+  },
+  "devDependencies": {
+    "mocha": "~1.12",
+    "expect.js": "~0.2.0"
+  },
+  "scripts": {
+    "test": "mocha test/* --reporter spec"
+  }
+}

@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+	include _menu
+	div.top-bar
+		h1 #{state} jobs
+	div.row
+		div.container
+			div.col-md-8.col-md-offset-2
+				div.panel-group(id='accordion')
+					div.accordion-header 
+						h3 #{queue}
+					- if (jobs.length > 0){
+					for job in jobs	
+						div.panel.panel-default
+							a(data-toggle='collapse', data-parent="#accordion", href="#collapse-#{job.jobId}")
+								div ID: ##{job.jobId}
+								- if (state === 'failed' || state === 'completed'){
+									a.pull-right(href='/retry/#{queue}/#{state}/#{job.jobId}') Retry
+								- }
+						div.panel-collapse.collapse.out(id="collapse-#{job.jobId}")
+							each key, index in job.data
+								p #{index} : #{key}
+					- }else{
+						div.panel.panel-default
+							p No job here
+					- }
+			div.col-md-8.col-md-offset-2
+				a(href='?more=true') load more

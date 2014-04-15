@@ -1,0 +1,19 @@
+ul#menu
+    for queue in queue_list
+        li.title(data-queue='#{queue}') #{queue}
+            svg#arrow(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', width='10px', height='6px', viewbox='0 0 10 6', enable-background='new 0 0 10 6', xml:space='preserve')
+                g
+                    polygon(fill='#fff', points='5,6 0,2 0,0 5,4 10,0 10,2  ')
+        ul
+            li.wait
+                a(href='/queue/#{queue}/wait')
+                    | Queued
+            li.active
+                a.active(href='/queue/#{queue}/active')
+                    | Active
+            li.failed
+                a(href='/queue/#{queue}/failed')
+                    | Failed
+            li.completed
+                a(href='/queue/#{queue}/completed')
+                    | Complete
