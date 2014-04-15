@@ -6,14 +6,14 @@ ul#menu
                     polygon(fill='#fff', points='5,6 0,2 0,0 5,4 10,0 10,2  ')
         ul
             li.wait
-                a(href='/queue/#{queue}/wait')
-                    | Queued
+                a(href='/queue/#{queue}/wait?limit=100')
+                    | Queued (#{queue_count[queue].wait})
             li.active
-                a.active(href='/queue/#{queue}/active')
-                    | Active
+                a.active(href='/queue/#{queue}/active?limit=100')
+                    | Active (#{queue_count[queue].active})
             li.failed
-                a(href='/queue/#{queue}/failed')
-                    | Failed
+                a(href='/queue/#{queue}/failed?limit=100')
+                    | Failed (#{queue_count[queue].failed}) 
             li.completed
-                a(href='/queue/#{queue}/completed')
-                    | Complete
+                a(href='/queue/#{queue}/completed?limit=100')
+                    | Complete (#{queue_count[queue].completed})

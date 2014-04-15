@@ -14,7 +14,10 @@ block content
 					for job in jobs	
 						div.panel.panel-default
 							a(data-toggle='collapse', data-parent="#accordion", href="#collapse-#{job.jobId}")
-								div ID: ##{job.jobId}
+								div.job-data ##{job.jobId} : {   
+									each key, index in job.data
+										font #{index} : #{key}, 
+									font } 
 								- if (state === 'failed' || state === 'completed'){
 									a.pull-right(href='/retry/#{queue}/#{state}/#{job.jobId}') Retry
 								- }
@@ -25,5 +28,6 @@ block content
 						div.panel.panel-default
 							p No job here
 					- }
-			div.col-md-8.col-md-offset-2
-				a(href='?more=true') load more
+			div.col-md-8.col-md-offset-2.load-more
+				a
+					button.btn Load More
