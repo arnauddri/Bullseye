@@ -159,6 +159,9 @@ table tr td {
   background-color: #fff;
   line-height: 30px
 }
+#accordion .panel-collapse p{
+  margin: 10px;
+}
 .load-more{
   text-align: center;
   margin-bottom: 80px;
