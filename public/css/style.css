@@ -147,7 +147,6 @@ table tr td {
   border-bottom: none;
 }
 #accordion .panel-default div {
-  /*width: 80%;*/
   display: inline-block;
 }
 #accordion .panel-default .job-data {
@@ -159,17 +158,10 @@ table tr td {
   background-color: #fff;
   line-height: 30px
 }
-<<<<<<< HEAD:lib/http/public/stylesheets/style.css
-#accordion .panel-collapse p{
-  margin: 10px;
-}
-.load-more{
-=======
 #accordion .panel-collapse p {
   margin: 10px;
 }
 .load-more {
->>>>>>> job-count:public/css/style.css
   text-align: center;
   margin-bottom: 80px;
 }
@@ -247,7 +239,7 @@ a.job-item:hover {
   transform: rotate(90deg);
   color: red;
 }
-.retry-all-jobs, .retry-all-jobs:hover, .remove-all-jobs, .remove-all-jobs:hover {
+a.retry-all-jobs, a.retry-all-jobs:hover, a.remove-all-jobs, a.remove-all-jobs:hover {
   color: #fff;
   font-size: 13px;
   line-height: 24px;
