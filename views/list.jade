@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  include _menu
+  .top-bar
+    h1 #{queue.name}
+  .row
+    .container
+      .col-md-8.col-md-offset-2
+        .panel-group(id="accordion")
+          .accordion-header
+            h3 #{state.name}
+              - if (state.canRetry) {
+                a.pull-right.retry-all-jobs(data-post-url="#{queue.url}/retry_all/#{state.key}") Retry All
+              - } else if (state.canRemove) {
+                a.pull-right.remove-all-jobs(data-post-url="#{queue.url}/remove_all/#{state.key}") Remove All
+              - }
+          - if (jobs.length > 0) {
+          for job in jobs
+            .panel.panel-default.job
+              - if (state.canRetry) {
+                a.pull-right.retry-job(data-post-url="#{queue.url}/jobs/#{job.jobId}/retry") Retry
+              - } else if (state.canRemove) {
+                a.pull-right.remove-job(data-delete-url="#{queue.url}/jobs/#{job.jobId}") Remove
+              - }
+
+              a.job-item(data-toggle="collapse", data-parent="#accordion", href="#collapse-#{job.jobId}")
+                span.job-updated #{prettyDate(job._updated)}
+                span.job-data ##{job.jobId} : #{JSON.stringify(job.data)}
+                - if (job._error) {
+                  span.job-data.error #{job._error}
+                - }
+            .panel-collapse.collapse.out(id="collapse-#{job.jobId}")
+              each key, index in job.data
+                p.job-detail #{index} : #{key}
+              - if (job._error) {
+                p.job-detail.error #{job._error}
+              - }
+          - } else {
+            .panel.panel-default
+              p No jobs here
+          - }
+
+      - if (hasMore) {
+        .col-md-8.col-md-offset-2.load-more
+          a(href="#{nextPageUrl}")
+            button.btn Load More
+      - }
