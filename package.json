@@ -8,7 +8,10 @@
     "lodash": "*",
     "jade": "^1.3.1",
     "async": "^0.7.0",
-    "redis": "^0.10.1"
+    "redis": "^0.10.1",
+    "passport": "*",
+    "passport-local": "*",
+    "passport-http": "*"
   },
   "scripts": {
     "start": "node ./lib/server.js"
