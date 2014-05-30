@@ -1,14 +1,4 @@
 $(document).ready(function() {
-  $('.title').click(function(){
-    if ($(this).next().is(':visible')) {
-      $(this).find('#arrow').css('transform','rotate(180deg)');
-    } else {
-      $(this).find('#arrow').css('transform','rotate(0deg)');
-    }
-
-    $(this).next().toggle();
-  });
-
   $('a[data-post-url]').click(function (e) {
     e.preventDefault();
 
