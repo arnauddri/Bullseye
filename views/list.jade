@@ -4,6 +4,12 @@ block content
   include _menu
   .top-bar
     h1 #{queue.name}
+    .states
+      ul
+        for state in states
+          li
+            a(href="/queues/#{queue.name}/#{state.key}" class=state.key)
+              | #{state.key} - #{queue[state.key]}
   .row
     .container
       .col-md-8.col-md-offset-2
@@ -33,7 +39,7 @@ block content
                   - }
               .panel-collapse.collapse.out(id="collapse-#{job.jobId}")
                 each key, index in job.data
-                  p.job-detail #{index} : #{key}
+                  p.job-detail #{index} : #{JSON.stringify(key, null, '\t')}
                 - if (job._error) {
                   p.job-detail.error #{job._error}
                 - }
