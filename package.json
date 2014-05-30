@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "dependencies": {
     "express": "^4.0.0",
-    "bull": "lperrin/bull.git",
+    "bull": "git://github.com/jboga/bull.git#sharedRedisClient",
     "lodash": "*",
     "jade": "^1.3.1",
     "async": "^0.7.0",
