@@ -1,7 +1,7 @@
 ul#menu
   for q in queues
     li.title(class= queue.name === q.name ? "current" : undefined)
-      a(href="/queues/#{q.name}/wait")
+      a(href="/queues/#{q.name}/failed")
         | #{q.name}
       .counters
         for state in states
