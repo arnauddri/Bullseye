@@ -33,10 +33,7 @@ block content
 
                 a.job-item(data-toggle="collapse", data-parent="#accordion", href="#collapse-#{job.jobId}")
                   span.job-updated #{prettyDate(job._updated)}
-                  span.job-data ##{job.jobId} : #{JSON.stringify(job.data)}
-                  - if (job._error) {
-                    span.job-data.error #{job._error}
-                  - }
+                  span.job-data ##{job.jobId} : #{job.data.name}
               .panel-collapse.collapse.out(id="collapse-#{job.jobId}")
                 each key, index in job.data
                   p.job-detail #{index} : #{JSON.stringify(key, null, '\t')}
