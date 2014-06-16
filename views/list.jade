@@ -18,7 +18,8 @@ block content
             h3 #{state.name}
               - if (state.canRetry) {
                 a.pull-right.retry-all-jobs(data-post-url="#{queue.url}/retry_all/#{state.key}") Retry All
-              - } else if (state.canRemove) {
+              - }
+              - if (state.canRemove) {
                 a.pull-right.remove-all-jobs(data-post-url="#{queue.url}/remove_all/#{state.key}") Remove All
               - }
           - if (jobs.length > 0) {
@@ -27,7 +28,8 @@ block content
               .panel.panel-default.job
                 - if (state.canRetry) {
                   a.pull-right.retry-job(data-post-url="#{queue.url}/jobs/#{job.jobId}/retry") Retry
-                - } else if (state.canRemove) {
+                - }
+                - if (state.canRemove) {
                   a.pull-right.remove-job(data-delete-url="#{queue.url}/jobs/#{job.jobId}") Remove
                 - }
 
