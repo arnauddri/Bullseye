@@ -36,12 +36,12 @@ block content
                 a.job-item(data-toggle="collapse", data-parent="#accordion", href="#collapse-#{job.jobId}")
                   span.job-updated #{prettyDate(job._updated)}
                   span.job-data ##{job.jobId} : #{job.data.name}
-              .panel-collapse.collapse.out(id="collapse-#{job.jobId}")
-                each key, index in job.data
-                  p.job-detail #{index} : #{JSON.stringify(key, null, '\t')}
                 - if (job._error) {
                   p.job-detail.error error : #{job._error}
                 - }
+              .panel-collapse.collapse.out(id="collapse-#{job.jobId}")
+                each key, index in job.data
+                  p.job-detail #{index} : #{JSON.stringify(key, null, '\t')}
             - }
           - } else {
             .panel.panel-default
