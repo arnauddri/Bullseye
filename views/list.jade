@@ -43,10 +43,12 @@ block content
                   p.job-detail.error error : #{job._error}
                 - }
               .panel-collapse.collapse.out(id="collapse-#{job.jobId}")
-                each key, index in job.data
-                  p.job-detail #{index} : #{JSON.stringify(key, null, '\t')}
-                - if (job._error) {
-                  p.job-detail.error error : #{job._error}
+                - if (job.data) {
+                  each key, index in job.data
+                    p.job-detail #{index} : #{JSON.stringify(key, null, '\t')}
+                  - if (job._error) {
+                    p.job-detail.error error : #{job._error}
+                  - }
                 - }
             - }
           - } else {
