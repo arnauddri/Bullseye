@@ -35,7 +35,10 @@ block content
 
                 a.job-item(data-toggle="collapse", data-parent="#accordion", href="#collapse-#{job.jobId}")
                   span.job-updated #{prettyDate(job._updated)}
-                  span.job-data ##{job.jobId} : #{job.data.name}
+                  span.job-data ##{job.jobId} : 
+                  - if (job.data) {
+                    #{job.data.name}
+                  - }
                 - if (job._error) {
                   p.job-detail.error error : #{job._error}
                 - }
