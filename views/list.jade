@@ -27,27 +27,27 @@ block content
             - if (job) {
               .panel.panel-default.job
                 - if (state.canRetry) {
-                  a.pull-right.retry-job(data-post-url="#{queue.url}/jobs/#{job.jobId}/retry") Retry
+                  a.pull-right.retry-job(data-post-url="#{queue.url}/jobs/#{job.id}/retry") Retry
                 - }
                 - if (state.canRemove) {
-                  a.pull-right.remove-job(data-delete-url="#{queue.url}/jobs/#{job.jobId}") Remove
+                  a.pull-right.remove-job(data-delete-url="#{queue.url}/jobs/#{job.id}") Remove
                 - }
 
-                a.job-item(data-toggle="collapse", data-parent="#accordion", href="#collapse-#{job.jobId}")
-                  span.job-updated #{prettyDate(job._updated)}
-                  span.job-data ##{job.jobId} : 
+                a.job-item(data-toggle="collapse", data-parent="#accordion", href="#collapse-#{job.id}")
+                  span.job-updated #{prettyDate(job.updated)}
+                  span.job-data ##{job.id} :
                   - if (job.data) {
                     #{job.data.name}
                   - }
-                - if (job._error) {
-                  p.job-detail.error error : #{job._error}
+                - if (job.error) {
+                  p.job-detail.error error : #{job.error}
                 - }
-              .panel-collapse.collapse.out(id="collapse-#{job.jobId}")
+              .panel-collapse.collapse.out(id="collapse-#{job.id}")
                 - if (job.data) {
                   each key, index in job.data
                     p.job-detail #{index} : #{JSON.stringify(key, null, '\t')}
-                  - if (job._error) {
-                    p.job-detail.error error : #{job._error}
+                  - if (job.error) {
+                    p.job-detail.error error : #{job.error}
                   - }
                 - }
             - }
